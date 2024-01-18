@@ -15,46 +15,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Icons\exit.png" />
-    <None Remove="Resources\Icons\exit_selected.png" />
-    <None Remove="Resources\Icons\gallery.png" />
-    <None Remove="Resources\Icons\gallery_selected.png" />
-    <None Remove="Resources\Icons\home.png" />
-    <None Remove="Resources\Icons\home_selected.png" />
-    <None Remove="Resources\Icons\info.png" />
-    <None Remove="Resources\Icons\info_selected.png" />
-    <None Remove="Resources\Icons\loop.png" />
-    <None Remove="Resources\Icons\loop_selected.png" />
-    <None Remove="Resources\Icons\settings.png" />
-    <None Remove="Resources\Icons\settings_selected.png" />
-    <None Remove="Resources\Icons\turn.png" />
-    <None Remove="Resources\Icons\turn_selected.png" />
+    <None Remove="Resources\Images\audi.png" />
+    <None Remove="Resources\Images\logo.ico" />
     <None Remove="Resources\Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Icons\loop.png" />
-    <Resource Include="Resources\Icons\loop_selected.png" />
+    <Resource Include="Resources\Images\audi.png" />
+    <Resource Include="Resources\Images\logo.ico" />
     <Resource Include="Resources\Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Resources\Icons\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Icons\exit.png" />
-    <Resource Include="Resources\Icons\exit_selected.png" />
-    <Resource Include="Resources\Icons\gallery.png" />
-    <Resource Include="Resources\Icons\gallery_selected.png" />
-    <Resource Include="Resources\Icons\home.png" />
-    <Resource Include="Resources\Icons\home_selected.png" />
-    <Resource Include="Resources\Icons\info.png" />
-    <Resource Include="Resources\Icons\info_selected.png" />
-    <Resource Include="Resources\Icons\settings.png" />
-    <Resource Include="Resources\Icons\settings_selected.png" />
-    <Resource Include="Resources\Icons\turn.png" />
-    <Resource Include="Resources\Icons\turn_selected.png" />
+    <Compile Update="View\CarBrandPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

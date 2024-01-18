@@ -25,8 +25,10 @@ namespace AutoChronicle
         public MainWindow()
         {
             InitializeComponent();
-            AppTheme.ChangeTheme("Dark");
-            DataContext = new MainWindowViewModel();
+            AppTheme.ChangeTheme(Theme.Dark);
+            MainWindowViewModel mainVM = new MainWindowViewModel();
+            mainVM.OnVerticalOffsetChanged += ViewModel_OnVerticalOffsetChanged;
+            DataContext = mainVM;
         }
         private void HeaderGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -44,5 +46,14 @@ namespace AutoChronicle
         {
             this.Close();
         }
+
+        private void ViewModel_OnVerticalOffsetChanged(object sender, EventArgs e)
+        {
+            if (sender is MainWindowViewModel mainVW)
+            {
+                MainScrollViewer.ScrollToVerticalOffset(mainVW.VerticalOffset);
+            }
+        }
+
     }
 }

@@ -1,8 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush Color="#1f1f1f" x:Key="Backdrop"/>
-    <SolidColorBrush Color="#333333" x:Key="Primary"/>
-    <SolidColorBrush Color="#e6e6e6" x:Key="Secondary"/>
-    <SolidColorBrush Color="#fff" x:Key="Selection"/>
+    <SolidColorBrush Color="#1f1f1f" x:Key="BackdropColor"/>
+    <SolidColorBrush Color="#333333" x:Key="PrimaryColor"/>
+    <!--Добавить в стили как цвет scrollbar-->
+    <SolidColorBrush Color="#717171" x:Key="SecondaryColor"/> 
+    <SolidColorBrush Color="#e6e6e6" x:Key="PrimaryTextColor"/>
+    <!--Добавить доп цвет текста для выделения scrollbar-->
+    <SolidColorBrush Color="#e6e6e6" x:Key="SecondaryTextColor"/>
+    <SolidColorBrush Color="#fff" x:Key="FocusColor"/>
 </ResourceDictionary>

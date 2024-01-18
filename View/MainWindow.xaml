@@ -4,13 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoChronicle"
-        
         mc:Ignorable="d"
         Title="AutoChronicle" Height="600" Width="1000" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Icon="/Resources/Images/logo.png"
+        Icon="/Resources/Images/logo.ico"
         WindowStyle="None"
-        Background="{DynamicResource Backdrop}">
+        Background="{DynamicResource BackdropColor}">
     
     <Window.Resources>
         <ResourceDictionary>
@@ -37,29 +36,61 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Rectangle Grid.ColumnSpan="3" Fill="{DynamicResource Primary}" />
+            <Rectangle Grid.ColumnSpan="3" Fill="{DynamicResource PrimaryColor}" />
 
             <StackPanel Margin="16, 0, 0, 0" Orientation="Horizontal" Grid.Column="0">
                 <Button x:Name="SettingsButton" FontSize="28" Content="&#xF8B0;" Style="{StaticResource IconButtonStyle}" />
-                <Button x:Name="InfoButton" FontSize="28" Content="&#xE946;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" />
-                <Button x:Name="GalleryButton" FontSize="28" Content="&#xEB9F;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" />
-                <Button x:Name="HomeButton" FontSize="28" Content="&#xEA8A;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" />
+                <Button x:Name="InfoButton" FontSize="28" Content="&#xE946;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenInfoCommand}" />
+                <Button x:Name="GalleryButton" FontSize="28" Content="&#xEB9F;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenGalleryCommand}"/>
+                <Button x:Name="HomeButton" FontSize="28" Content="&#xEA8A;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenHomeCommand}"/>
             </StackPanel>
                 
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{DynamicResource Secondary}" FontFamily="Montserrat Thin" FontWeight="ExtraBold"  Text="A U T O C H R O N I C L E"/>
+                <TextBlock HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           FontSize="30" Foreground="{DynamicResource PrimaryTextColor}" 
+                           FontFamily="Montserrat Thin" 
+                           FontWeight="ExtraBold" 
+                           Text="A U T O C H R O N I C L E"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Right" Margin="0, 0, 26, 0" Grid.Column="2" Orientation="Horizontal" >
-                <Button x:Name="TurnButton" FontSize="28" Content="&#xEF2D;" Width="25" Height="25" Click="TurnButton_Click" Style="{StaticResource IconButtonStyle}" />
-                <Button x:Name="ExitButton" FontSize="28" Content="&#xEF2C;" Width="22" Height="22" Margin="19, 0, 0, 0" Click="ExitButton_Click" Style="{StaticResource IconButtonStyle}" />
+                <Button x:Name="TurnButton" 
+                        FontSize="28" 
+                        Content="&#xEF2D;" 
+                        Width="25" 
+                        Height="25" 
+                        Click="TurnButton_Click" 
+                        Style="{StaticResource IconButtonStyle}" />
+                <Button x:Name="ExitButton" 
+                        FontSize="28" 
+                        Content="&#xEF2C;" 
+                        Width="22" 
+                        Height="22" 
+                        Margin="19, 0, 0, 0" 
+                        Click="ExitButton_Click" 
+                        Style="{StaticResource IconButtonStyle}" />
             </StackPanel>
         </Grid>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Background="{DynamicResource Primary}" Margin="0, 1, 0, 0">
+        <StackPanel Grid.Column="0" Grid.Row="1" Background="{DynamicResource PrimaryColor}" Margin="0, 1, 0, 0">
             <Grid>
-                <TextBox x:Name="SearchTextBox" Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}" Margin="14, 15" Background="Transparent" FontFamily="Montserrat Thin" FontSize="17" SelectionBrush="{DynamicResource Selection}" />
-                <TextBlock IsHitTestVisible="False" Text="Search..." VerticalAlignment="Center" FontFamily="Montserrat Thin" FontSize="17" HorizontalAlignment="Left" Margin="27,0,0,0" Foreground="{DynamicResource Secondary}">
+                <TextBox x:Name="SearchTextBox" 
+                         Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}" 
+                         Margin="14, 15" 
+                         Background="Transparent" 
+                         FontFamily="Montserrat Thin" 
+                         FontSize="17" 
+                         SelectionBrush="{DynamicResource FocusColor}" 
+                         Style="{DynamicResource OutlinedTextBox}"/>
+                <TextBlock IsHitTestVisible="False" 
+                           Text="Search..." 
+                           VerticalAlignment="Center" 
+                           FontFamily="Montserrat Thin" 
+                           FontSize="17" 
+                           HorizontalAlignment="Left" 
+                           Margin="27,0,0,0" 
+                           Foreground="{DynamicResource PrimaryTextColor}">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
@@ -72,11 +103,24 @@
                     </TextBlock.Style>
                 </TextBlock>
             </Grid>
-            <ListBox x:Name="AutoBrandsListBox" ItemsSource="{Binding Items}" Height="440" Margin="20, 0" FontFamily="Montserrat Thin" FontSize="20" Foreground="{DynamicResource Secondary}" Background="Transparent" BorderBrush="Transparent">
-
-            </ListBox>
-            
-            
+            <ListBox x:Name="AutoBrandsListBox" 
+                     ItemsSource="{Binding Items}" 
+                     SelectedValue="{Binding SelectedItem}"
+                     Height="440" 
+                     Margin="20, 0" 
+                     FontFamily="Montserrat Thin" 
+                     FontSize="20" 
+                     Foreground="{DynamicResource PrimaryTextColor}" 
+                     Background="Transparent" 
+                     BorderBrush="Transparent" />
         </StackPanel>
+
+        <ScrollViewer x:Name="MainScrollViewer" 
+                      Margin="0, 0, 0, 20" 
+                      Grid.Row="1" 
+                      
+                      Grid.Column="1">
+            <ContentControl Margin="20" Content="{Binding CurrentPage}"/>
+        </ScrollViewer>
     </Grid>
 </Window>
