@@ -28,17 +28,6 @@ namespace AutoChronicle
             AppTheme.ChangeTheme("Dark");
             DataContext = new MainWindowViewModel();
         }
-
-        private void ExitButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void TurnButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
         private void HeaderGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -46,6 +35,14 @@ namespace AutoChronicle
                 this.DragMove();
             }
         }
+        private void TurnButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
 
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
