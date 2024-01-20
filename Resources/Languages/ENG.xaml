@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="SearchTextBoxHint">Search...</system:String>
+    <system:String x:Key="InfoPageText">
+        Welcome to the description of the AutoChronicle! This application is a desktop application designed to facilitate access 
+        to the fascinating world of automobiles. 
+        It is nothing less than a true encyclopedia for automotive enthusiasts. 
+        It includes historical information about all known automotive companies, presented with illustrations and a brief summary. 
+        Additionally, data about individual models from various brands are available. Enriched with an incredible design and the ability 
+        to change languages, this guide-like application is an invaluable companion for every beginner, and perhaps even a seasoned car enthusiast.
+    </system:String>
+    <system:String x:Key="AutorLabel">Autor: Tong057</system:String>
+    
+</ResourceDictionary>

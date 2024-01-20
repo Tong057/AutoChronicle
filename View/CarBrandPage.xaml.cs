@@ -21,13 +21,13 @@ namespace AutoChronicle.View
     /// </summary>
     public partial class CarBrandPage : UserControl
     {
-        public CarBrandPage(string? carBrand)
+        public CarBrandPage(string? carBrand, string language)
         {
             InitializeComponent();
             if (carBrand != null)
             {
                 BrandNameTextBlock.Text = carBrand.ToUpper();
-                HistoryTextBlock.Text = DataReader.ReadCarHistory(carBrand, "pl");
+                HistoryTextBlock.Text = DataReader.ReadCarHistory(carBrand, language);
                 try
                 {
                     LogoImage.Source = new BitmapImage(new Uri(DataReader.GetImagePath(carBrand)));

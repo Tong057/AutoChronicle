@@ -14,11 +14,15 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Styles/Styles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Styles.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/TextBox.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Button.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/ToggleButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -28,6 +32,14 @@
             <ColumnDefinition Width="205"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect Color="#000000"
+                                  Opacity="0.1"
+                                  Direction="90"
+                                  ShadowDepth="2"
+                                  BlurRadius="35" />
+        </Grid.Effect>
+
 
         <Grid x:Name="HeaderGrid" Grid.ColumnSpan="2" MouseDown="HeaderGrid_MouseDown">
             <Grid.ColumnDefinitions>
@@ -39,7 +51,39 @@
             <Rectangle Grid.ColumnSpan="3" Fill="{DynamicResource PrimaryColor}" />
 
             <StackPanel Margin="16, 0, 0, 0" Orientation="Horizontal" Grid.Column="0">
-                <Button x:Name="SettingsButton" FontSize="28" Content="&#xF8B0;" Style="{StaticResource IconButtonStyle}" />
+                <Menu VerticalAlignment="Center" >
+                    <MenuItem VerticalAlignment="Center" Header="&#xF8B0;" FontSize="28" Style="{DynamicResource Services_MenuItem_With_Dropdown}" >
+                        <!--<Button x:Name="SettingsButton" FontSize="28" Content="&#xF8B0;" Style="{StaticResource IconButtonStyle}" />-->
+
+                        <StackPanel Margin="10">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Light" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="0, 0, 10, 0"/>
+                                <ToggleButton Width="40" Command="{Binding ChangeThemeCommand}" IsChecked="True" />
+                                <TextBlock Text="Dark" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                            </StackPanel>
+                            <Separator />
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Command="{Binding ChangeLanguageCommand}" IsChecked="True" CommandParameter="ENG" GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
+                                    <TextBlock Text="English" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="RUS" GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
+                                    <TextBlock Text="Russian" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="POL" GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
+                                    <TextBlock Text="Polish" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                            
+
+                        </StackPanel>
+
+                    </MenuItem>
+                    
+                </Menu>
                 <Button x:Name="InfoButton" FontSize="28" Content="&#xE946;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenInfoCommand}" />
                 <Button x:Name="GalleryButton" FontSize="28" Content="&#xEB9F;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenGalleryCommand}"/>
                 <Button x:Name="HomeButton" FontSize="28" Content="&#xEA8A;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenHomeCommand}"/>
@@ -82,9 +126,9 @@
                          FontFamily="Montserrat Thin" 
                          FontSize="17" 
                          SelectionBrush="{DynamicResource FocusColor}" 
-                         Style="{DynamicResource OutlinedTextBox}"/>
+                         Style="{StaticResource OutlinedTextBox}"/>
                 <TextBlock IsHitTestVisible="False" 
-                           Text="Search..." 
+                           Text="{DynamicResource SearchTextBoxHint}" 
                            VerticalAlignment="Center" 
                            FontFamily="Montserrat Thin" 
                            FontSize="17" 
@@ -112,7 +156,9 @@
                      FontSize="20" 
                      Foreground="{DynamicResource PrimaryTextColor}" 
                      Background="Transparent" 
-                     BorderBrush="Transparent" />
+                     BorderBrush="Transparent" >
+                
+            </ListBox>
         </StackPanel>
 
         <ScrollViewer x:Name="MainScrollViewer" 

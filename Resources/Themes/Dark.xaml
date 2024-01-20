@@ -4,7 +4,7 @@
     <SolidColorBrush Color="#1f1f1f" x:Key="BackdropColor"/>
     <SolidColorBrush Color="#333333" x:Key="PrimaryColor"/>
     <!--Добавить в стили как цвет scrollbar-->
-    <SolidColorBrush Color="#717171" x:Key="SecondaryColor"/> 
+    <SolidColorBrush Color="#444444" x:Key="SecondaryColor"/> 
     <SolidColorBrush Color="#e6e6e6" x:Key="PrimaryTextColor"/>
     <!--Добавить доп цвет текста для выделения scrollbar-->
     <SolidColorBrush Color="#e6e6e6" x:Key="SecondaryTextColor"/>

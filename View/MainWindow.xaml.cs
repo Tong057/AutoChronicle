@@ -1,19 +1,8 @@
-﻿using AutoChronicle.ViewModel;
+﻿using AutoChronicle.Resources.Languages;
+using AutoChronicle.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AutoChronicle
 {
@@ -26,9 +15,12 @@ namespace AutoChronicle
         {
             InitializeComponent();
             AppTheme.ChangeTheme(Theme.Dark);
+            AppLanguage.ChangeLanguage(AutoChronicle.Resources.Languages.Language.ENG);
             MainWindowViewModel mainVM = new MainWindowViewModel();
             mainVM.OnVerticalOffsetChanged += ViewModel_OnVerticalOffsetChanged;
             DataContext = mainVM;
+
+            
         }
         private void HeaderGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
