@@ -22,7 +22,6 @@
         </ResourceDictionary>
     </Window.Resources>
 
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -33,13 +32,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Effect>
-            <DropShadowEffect Color="#000000"
-                                  Opacity="0.1"
-                                  Direction="90"
-                                  ShadowDepth="2"
-                                  BlurRadius="35" />
+            <DropShadowEffect Color="#000000" Opacity="0.1" Direction="90" ShadowDepth="2" BlurRadius="35" />
         </Grid.Effect>
-
 
         <Grid x:Name="HeaderGrid" Grid.ColumnSpan="2" MouseDown="HeaderGrid_MouseDown">
             <Grid.ColumnDefinitions>
@@ -53,40 +47,42 @@
             <StackPanel Margin="16, 0, 0, 0" Orientation="Horizontal" Grid.Column="0">
                 <Menu VerticalAlignment="Center" >
                     <MenuItem VerticalAlignment="Center" Header="&#xF8B0;" FontSize="28" Style="{DynamicResource Services_MenuItem_With_Dropdown}" >
-                        <!--<Button x:Name="SettingsButton" FontSize="28" Content="&#xF8B0;" Style="{StaticResource IconButtonStyle}" />-->
-
                         <StackPanel Margin="10">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Light" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="0, 0, 10, 0"/>
+                                <TextBlock Text="{DynamicResource LightLabel}" FontFamily="Rubik Regular" FontSize="18" 
+                                           Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="0, 0, 10, 0"/>
                                 <ToggleButton Width="40" Command="{Binding ChangeThemeCommand}" IsChecked="True" />
-                                <TextBlock Text="Dark" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                                <TextBlock Text="{DynamicResource DarkLabel}" FontFamily="Rubik Regular" FontSize="18" 
+                                           Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
                             </StackPanel>
                             <Separator />
-                            <StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <RadioButton Command="{Binding ChangeLanguageCommand}" IsChecked="True" CommandParameter="ENG" GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
-                                    <TextBlock Text="English" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                            <StackPanel Orientation="Horizontal">
+                                    <RadioButton Command="{Binding ChangeLanguageCommand}" IsChecked="True" CommandParameter="ENG" 
+                                                 GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
+                                    <TextBlock Text="{DynamicResource EnglishLabel}" FontFamily="Rubic Regular" FontSize="18" 
+                                               Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="RUS" GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
-                                    <TextBlock Text="Russian" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="RUS" GroupName="LanguageGroup" 
+                                                 Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
+                                <TextBlock Text="{DynamicResource RussianLabel}" FontFamily="Rubik Regular" FontSize="18" 
+                                               Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="POL" GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
-                                    <TextBlock Text="Polish" FontFamily="Rubik Medium" FontSize="18" Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="POL" GroupName="LanguageGroup" 
+                                                 Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
+                                <TextBlock Text="{DynamicResource PolishLabel}" FontFamily="Rubik Regular" FontSize="18" 
+                                           Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
                                 </StackPanel>
-
                             </StackPanel>
-                            
-
-                        </StackPanel>
-
                     </MenuItem>
-                    
                 </Menu>
-                <Button x:Name="InfoButton" FontSize="28" Content="&#xE946;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenInfoCommand}" />
-                <Button x:Name="GalleryButton" FontSize="28" Content="&#xEB9F;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenGalleryCommand}"/>
-                <Button x:Name="HomeButton" FontSize="28" Content="&#xEA8A;" Style="{StaticResource IconButtonStyle}" Margin="8, 0, 0, 0" Command="{Binding OpenHomeCommand}"/>
+                <Button x:Name="InfoButton" FontSize="28" Content="&#xE946;" Style="{StaticResource IconButtonStyle}" 
+                        Margin="8, 0, 0, 0" Command="{Binding OpenInfoCommand}" />
+                <Button x:Name="GalleryButton" FontSize="28" Content="&#xEB9F;" Style="{StaticResource IconButtonStyle}" 
+                        Margin="8, 0, 0, 0" Command="{Binding OpenGalleryCommand}"/>
+                <Button x:Name="HomeButton" FontSize="28" Content="&#xEA8A;" Style="{StaticResource IconButtonStyle}" 
+                        Margin="8, 0, 0, 0" Command="{Binding OpenHomeCommand}"/>
             </StackPanel>
                 
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
@@ -147,8 +143,8 @@
                     </TextBlock.Style>
                 </TextBlock>
             </Grid>
-            <ListBox x:Name="AutoBrandsListBox" 
-                     ItemsSource="{Binding Items}" 
+            <ListBox x:Name="CarBrandsListBox" 
+                     ItemsSource="{Binding CarBrands}" 
                      SelectedValue="{Binding SelectedItem}"
                      Height="440" 
                      Margin="20, 0" 
@@ -156,17 +152,17 @@
                      FontSize="20" 
                      Foreground="{DynamicResource PrimaryTextColor}" 
                      Background="Transparent" 
-                     BorderBrush="Transparent" >
-                
+                     BorderBrush="Transparent" 
+                     >
             </ListBox>
         </StackPanel>
-
         <ScrollViewer x:Name="MainScrollViewer" 
                       Margin="0, 0, 0, 20" 
                       Grid.Row="1" 
-                      
                       Grid.Column="1">
-            <ContentControl Margin="20" Content="{Binding CurrentPage}"/>
+            <ContentControl Margin="20" Content="{Binding CurrentPage}" />
         </ScrollViewer>
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="{DynamicResource SecondaryColor}" Height="1" 
+                   VerticalAlignment="Bottom" Margin="20" />
     </Grid>
 </Window>

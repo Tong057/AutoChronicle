@@ -24,6 +24,11 @@ namespace AutoChronicle.View
         public CarBrandPage(string? carBrand, string language)
         {
             InitializeComponent();
+            LoadPage(carBrand, language);
+        }
+
+        private void LoadPage(string? carBrand, string language)
+        {
             if (carBrand != null)
             {
                 BrandNameTextBlock.Text = carBrand.ToUpper();
@@ -36,9 +41,8 @@ namespace AutoChronicle.View
                 {
                     LogoImage.Source = null;
                 }
-                
-            }
 
+            }
         }
     }
 }

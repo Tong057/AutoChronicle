@@ -15,11 +15,13 @@
                        Foreground="{DynamicResource PrimaryTextColor}" 
                        FontSize="24" 
                        Height="Auto" 
+                       FontFamily="Roboto"
                        Text="{DynamicResource InfoPageText}"/>
             <TextBlock TextWrapping="Wrap" 
                        Margin="0, 15"
                        Foreground="{DynamicResource PrimaryTextColor}" 
                        FontSize="24" 
+                       FontFamily="Consolas"
                        Height="Auto" 
                        Text="{DynamicResource AutorLabel}"/>
             

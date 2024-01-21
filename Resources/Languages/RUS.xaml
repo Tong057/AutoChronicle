@@ -10,6 +10,9 @@
         является бесценным спутником для каждого новичка и, возможно, даже опытного автолюбителя.
     </system:String>
     <system:String x:Key="AutorLabel">Автор: Tong057</system:String>
-
-
+    <system:String x:Key="EnglishLabel">Английский</system:String>
+    <system:String x:Key="PolishLabel">Польский</system:String>
+    <system:String x:Key="RussianLabel">Русский</system:String>
+    <system:String x:Key="LightLabel">Светлая</system:String>
+    <system:String x:Key="DarkLabel">Тёмная</system:String>
 </ResourceDictionary>

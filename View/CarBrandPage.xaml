@@ -10,11 +10,12 @@
     <Grid>
         <StackPanel>
             <Image x:Name="LogoImage" RenderOptions.BitmapScalingMode="HighQuality" Width="350" />
-            <TextBlock x:Name="BrandNameTextBlock" Margin="50, 0" Foreground="{DynamicResource SecondaryTextColor}" FontSize="40" HorizontalAlignment="Center" />
+            <TextBlock x:Name="BrandNameTextBlock" FontFamily="GeForce" Margin="50, 0" Foreground="{DynamicResource SecondaryTextColor}" FontSize="40" HorizontalAlignment="Center" />
             <TextBlock x:Name="HistoryTextBlock"
                        TextWrapping="Wrap"
                        Margin="0, 15"
                        Foreground="{DynamicResource PrimaryTextColor}" 
+                       FontFamily="Reforma 1918 Blanca"
                        FontSize="24" 
                        Height="Auto"
                        >
@@ -25,7 +26,7 @@
                        Margin="0, 15"
                        Foreground="{DynamicResource PrimaryTextColor}" 
                        FontSize="24" 
-                       Height="Auto" 
+                       Height="Auto"
                        Text="Autor: Tong057"/>
             
         </StackPanel>

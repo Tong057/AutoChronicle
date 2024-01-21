@@ -2,23 +2,17 @@
 using AutoChronicle.Resources.Languages;
 using AutoChronicle.View;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace AutoChronicle.ViewModel
 {
     class MainWindowViewModel : ViewModelBase
     { 
-        public ObservableCollection<string> Items { get; }
+        public ObservableCollection<string> CarBrands { get; }
         private readonly ICollectionView _itemsView;
         private string? _selectedItem;
         private int _selectedIndex;
@@ -26,8 +20,8 @@ namespace AutoChronicle.ViewModel
         private double _verticalOffset;
         private object _currentPage;
 
-        private int _toggleButtonState;
-        private string _selectedLanguage;
+        private int _toggleButtonState = 1;
+        private string _selectedLanguage = "ENG";
 
         public ICommand OpenInfoCommand { get; set; }
         public ICommand OpenGalleryPageCommand { get; set; }
@@ -39,17 +33,16 @@ namespace AutoChronicle.ViewModel
         public MainWindowViewModel()
         {
             OpenInfoCommand = new RelayCommand((object obj) => CurrentPage = new InfoPage());
+            OpenHomeCommand = new RelayCommand((object obj) => CurrentPage = new HomePage());
             ChangeThemeCommand = new RelayCommand((object obj) => ToggleButtonState = 1 - ToggleButtonState);
             ChangeLanguageCommand = new RelayCommand((object obj) => SelectedLanguage = (string)obj);
 
-            ToggleButtonState = 1;
-            _selectedLanguage = "ENG";
-
-            Items = new ObservableCollection<string>(DataReader.ReadCarBrands()); // { "Audi", "Mazda", "BMW", "Mercedes", "Jeep", "Geely", "Honda", "Nissan", "Toyota", "KIA", "Cintroen", "Peugeot", "GAZ", "VAZ", "Subaru", "Mitsubishi", "FSO", "Volvo", "Dodge", "Chevrolet", "Ford"};
-            Items = new ObservableCollection<string>(Items.OrderBy(i => i));
-
-            _itemsView = CollectionViewSource.GetDefaultView(Items);
+            CarBrands = new ObservableCollection<string>(DataReader.ReadCarBrands()); // { "Audi", "Mazda", "BMW", "Mercedes", "Jeep", "Geely", "Honda", "Nissan", "Toyota", "KIA", "Cintroen", "Peugeot", "GAZ", "VAZ", "Subaru", "Mitsubishi", "FSO", "Volvo", "Dodge", "Chevrolet", "Ford"};
+            CarBrands = new ObservableCollection<string>(CarBrands.OrderBy(i => i));
+            _itemsView = CollectionViewSource.GetDefaultView(CarBrands);
             _itemsView.Filter = ItemsFilter;
+
+            CurrentPage = new HomePage();
         }
 
         public object CurrentPage
@@ -144,13 +137,13 @@ namespace AutoChronicle.ViewModel
                 if (SetProperty(ref _selectedLanguage, value))
                 {
                     AppLanguage.ChangeLanguage(Enum.Parse<Language>(_selectedLanguage));
+                    if (CurrentPage is CarBrandPage)
+                    {
+                        CurrentPage = new CarBrandPage(_selectedItem, _selectedLanguage);
+                    }
                 }
             }
         }
-
-
-
-
 
     }
 }

@@ -35,7 +35,7 @@ namespace AutoChronicle.Model.Utils
             }
         }
 
-        private static string GetDataDirectory()
+        public static string GetDataDirectory()
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
