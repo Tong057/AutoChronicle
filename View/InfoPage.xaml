@@ -52,6 +52,9 @@
                         <Hyperlink FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" NavigateUri="https://www.instagram.com/tony_katolichenko" RequestNavigate="Hyperlink_RequestNavigate">
                             --> Instagram &lt;--
                         </Hyperlink>
+                        <Hyperlink FontSize="24" FontFamily="Segoe MDL2 Assets" Foreground="{DynamicResource PrimaryTextColor}" NavigateUri="https://www.youtube.com/watch?v=dQw4w9WgXcQ" RequestNavigate="Hyperlink_RequestNavigate">
+                            &#xE76E;
+                        </Hyperlink>
             </TextBlock>
 
         </StackPanel>

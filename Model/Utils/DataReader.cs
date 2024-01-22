@@ -1,30 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Reflection;
 
 namespace AutoChronicle.Model.Utils
 {
     public class DataReader
     {
-        private static string _relativeDataDirectory = @"\Model\Data";
+        public static string ExecutablePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         public static string[] ReadCarBrands()
         {
-            string dataDirectory = GetDataDirectory();
-            string[] absoluteDirectories = Directory.GetDirectories(dataDirectory);
+            string folderPath = Path.Combine(ExecutablePath, "Model", "Data");
+            string[] brandsDirectories = Directory.GetDirectories(folderPath);
 
-            return Array.ConvertAll(absoluteDirectories,
-                dir => Path.GetRelativePath(dataDirectory, dir));
+            return Array.ConvertAll(brandsDirectories,
+                dir => Path.GetRelativePath(folderPath, dir));
         }
 
         public static string ReadCarHistory(string carBrand, string language)
         {
-            string dataDirectory = GetDataDirectory();
-            string filePath = @$"{dataDirectory}\{carBrand}\{carBrand}_{language}.txt";
+            string filePath = Path.Combine(ExecutablePath, "Model", "Data", carBrand, $"{carBrand}_{language}.txt");
 
             using (FileStream fs = new FileStream(filePath, FileMode.Open))
             {
@@ -35,30 +30,9 @@ namespace AutoChronicle.Model.Utils
             }
         }
 
-        public static async Task<string> ReadCarHistoryAsync(string carBrand, string language)
-        {
-            string dataDirectory = GetDataDirectory();
-            string filePath = @$"{dataDirectory}\{carBrand}\{carBrand}_{language}.txt";
-
-            using (FileStream fs = new FileStream(filePath, FileMode.Open))
-            {
-                using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
-                {
-                    return await sr.ReadToEndAsync();
-                }
-            }
-        }
-
-        public static string GetDataDirectory()
-        {
-            string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            return projectDirectory + _relativeDataDirectory;
-        }
-
         public static string GetImagePath(string carBrand)
         {
-            return $@"{GetDataDirectory()}\{carBrand}\{carBrand}.png";
+            return Path.Combine(ExecutablePath, "Model", "Data", carBrand, $"{carBrand}.png");
         }
     }
 }

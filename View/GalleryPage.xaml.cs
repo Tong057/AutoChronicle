@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 namespace AutoChronicle.View
@@ -30,6 +31,8 @@ namespace AutoChronicle.View
         private async Task GenerateNextImageAsync()
         {
             WaitingTextBox.Visibility = Visibility.Visible;
+            Storyboard storyboard = CreateStoryBoard(); // StoryBoard for animation
+
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -41,8 +44,9 @@ namespace AutoChronicle.View
                     {
                         string jsonContent = await response.Content.ReadAsStringAsync();
                         dynamic jsonData = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonContent);
-
                         string imageUrl = jsonData.urls.regular;
+
+                        storyboard.Begin(); // Show animation
                         CarImage.Source = new BitmapImage(new Uri(imageUrl));
                     }
                     else
@@ -60,6 +64,29 @@ namespace AutoChronicle.View
                 }
             }
         }
+
+        private Storyboard CreateStoryBoard()
+        {
+            DoubleAnimation fadeInAnimation = CreateFadeInAnimation();
+            Storyboard storyboard = new Storyboard();
+            Storyboard.SetTarget(fadeInAnimation, CarImage);
+            Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(Image.OpacityProperty));
+            storyboard.Children.Add(fadeInAnimation);
+
+            return storyboard;
+        }
+
+        private DoubleAnimation CreateFadeInAnimation()
+        {
+            return new DoubleAnimation
+            {
+                From = 0.0,
+                To = 1.0,
+                Duration = TimeSpan.FromSeconds(2),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
+            };
+        }
+
     }
 
 }

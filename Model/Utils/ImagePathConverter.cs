@@ -15,9 +15,9 @@ namespace AutoChronicle.View
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is string imagePath)
+            if (value is string carBrand)
             {
-                string fullPath = $@"{DataReader.GetDataDirectory()}\{imagePath}\{imagePath}.png";
+                string fullPath = DataReader.GetImagePath(carBrand);
 
                 BitmapImage bitmapImage = new BitmapImage(new Uri(fullPath));
                 return bitmapImage;
