@@ -14,19 +14,13 @@
         <ListBox Name="BrandListBox" ItemsSource="{Binding CarBrands}" SelectedValue="{Binding SelectedItem}" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Padding" Value="0"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource FocusColor}"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource FocusColor}"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseCaptured" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource FocusColor}"/>
-                            <!-- Цвет выделения -->
-                        </Trigger>
-                    </Style.Triggers>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemsPanel>
@@ -36,15 +30,21 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="{DynamicResource PrimaryColor}" Background="{DynamicResource PrimaryColor}" BorderThickness="1" Margin="5">
+                    <Border x:Name="border" BorderBrush="{DynamicResource PrimaryColor}" Background="{DynamicResource PrimaryColor}" BorderThickness="1" Margin="5">
                         <Border.Effect>
                             <DropShadowEffect Color="#000000" Opacity="0.1" Direction="90" ShadowDepth="2" BlurRadius="35" />
                         </Border.Effect>
                         <StackPanel Width="166" Height="185">
-                            <Image Source="{Binding Converter={StaticResource ImagePathConverter}}" Width="100" Height="100" RenderOptions.BitmapScalingMode="HighQuality" Margin="0, 20"/>
+                            <Image Source="{Binding Converter={StaticResource ImagePathConverter}}" Width="140" Height="100" RenderOptions.BitmapScalingMode="HighQuality" Margin="0, 20"/>
                             <TextBlock Text="{Binding}" HorizontalAlignment="Center" FontFamily="GeForce" Foreground="{DynamicResource SecondaryTextColor}" FontSize="25" />
                         </StackPanel>
                     </Border>
+                    <DataTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SecondaryColor}"/>
+                        </Trigger>
+
+                    </DataTemplate.Triggers>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

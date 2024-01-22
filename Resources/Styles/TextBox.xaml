@@ -42,6 +42,9 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource FocusColor}"/>
                             <Setter Property="CaretBrush" Value="{DynamicResource FocusColor}" />
                         </Trigger>
+                        <Trigger Property="IsFocused" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

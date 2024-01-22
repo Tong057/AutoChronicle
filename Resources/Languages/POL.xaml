@@ -13,6 +13,7 @@
     <system:String x:Key="EnglishLabel">Angielski</system:String>
     <system:String x:Key="PolishLabel">Polski</system:String>
     <system:String x:Key="RussianLabel">Rosyjski</system:String>
-    <system:String x:Key="LightLabel">Jasny</system:String>
-    <system:String x:Key="DarkLabel">Ciemny</system:String>
+    <system:String x:Key="LightLabel">Jasny Tryb</system:String>
+    <system:String x:Key="DarkLabel">Ciemny Tryb</system:String>
+    <system:String x:Key="NextLabel">Dalej</system:String>
 </ResourceDictionary>

@@ -2,10 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush Color="#fefefe" x:Key="BackdropColor"/>
     <SolidColorBrush Color="#fff" x:Key="PrimaryColor"/>
-    <!--Добавить в стили как цвет scrollbar-->
     <SolidColorBrush Color="#e8e8e8" x:Key="SecondaryColor"/>
     <SolidColorBrush Color="#323433" x:Key="PrimaryTextColor"/>
-    <!--Добавить доп цвет текста для выделения scrollbar-->
     <SolidColorBrush Color="#f81616" x:Key="SecondaryTextColor"/>
     <SolidColorBrush Color="#f81616" x:Key="FocusColor"/>
 </ResourceDictionary>

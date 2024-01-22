@@ -35,6 +35,20 @@ namespace AutoChronicle.Model.Utils
             }
         }
 
+        public static async Task<string> ReadCarHistoryAsync(string carBrand, string language)
+        {
+            string dataDirectory = GetDataDirectory();
+            string filePath = @$"{dataDirectory}\{carBrand}\{carBrand}_{language}.txt";
+
+            using (FileStream fs = new FileStream(filePath, FileMode.Open))
+            {
+                using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
+                {
+                    return await sr.ReadToEndAsync();
+                }
+            }
+        }
+
         public static string GetDataDirectory()
         {
             string workingDirectory = Environment.CurrentDirectory;

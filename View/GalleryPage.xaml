@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="AutoChronicle.View.GalleryPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoChronicle.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="530" d:DesignWidth="795"
+             Style="{StaticResource PageAnimationStyle}">
+    <Grid>
+        <StackPanel>
+            <Image x:Name="CarImage" Margin="20" Height="300" RenderOptions.BitmapScalingMode="HighQuality" />
+            <TextBlock x:Name="CarNameTextBlock" Margin="10" HorizontalAlignment="Center" FontFamily="GeForce" Foreground="{DynamicResource SecondaryTextColor}" FontSize="40" />
+            <Button x:Name="NextImageButton" Content="{DynamicResource NextLabel}" Style="{StaticResource RoundedButtonStyle}"  HorizontalAlignment="Center" Width="100" Height="40" Cursor="Hand" Click="NextImageButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

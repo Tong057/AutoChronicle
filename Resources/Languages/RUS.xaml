@@ -13,6 +13,7 @@
     <system:String x:Key="EnglishLabel">Английский</system:String>
     <system:String x:Key="PolishLabel">Польский</system:String>
     <system:String x:Key="RussianLabel">Русский</system:String>
-    <system:String x:Key="LightLabel">Светлая</system:String>
-    <system:String x:Key="DarkLabel">Тёмная</system:String>
+    <system:String x:Key="LightLabel">Светлая Тема</system:String>
+    <system:String x:Key="DarkLabel">Тёмная Тема</system:String>
+    <system:String x:Key="NextLabel">Дальше</system:String>
 </ResourceDictionary>

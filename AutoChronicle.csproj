@@ -20,12 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Images\logo.ico" />
-    <Resource Include="Resources\Images\logo.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Icons\" />
+    <Resource Include="Resources\Icons\logo.ico" />
+    <Resource Include="Resources\Icons\logo.png" />
   </ItemGroup>
 
   <ItemGroup>

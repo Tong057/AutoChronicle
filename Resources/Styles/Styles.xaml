@@ -181,65 +181,38 @@
         </Setter>
     </Style>
 
-    <!--<Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Margin" Value="0,5,0,0" />
+    <Style x:Key="AnimatedListBoxItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="FontFamily" Value="Montserrat Thin" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="border" Height="30">
-                        <Border.Background>
-                            <SolidColorBrush x:Name="BorderBackground" Color="{DynamicResource SecondaryColor}" />
-                        </Border.Background>
-                        <Grid>
-                            <Border x:Name="Indicator"
-                                Height="35"
-                                Width="4"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Background="#FFFFFF"
-                                Visibility="Collapsed"
-                                CornerRadius="2" />
-                            <ContentPresenter />
-                        </Grid>
+                    <Border x:Name="border" CornerRadius="2" Background="Transparent">
+                        <ContentPresenter Margin="5"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Visibility" TargetName="Indicator" Value="Visible" />
-                        </Trigger>
-                        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="border">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BorderBackground"
-                                                Storyboard.TargetProperty="Color"
-                                                From="#272B2F"
-                                                To="#3E434A"
-                                                Duration="0:0:0.3" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BorderBackground"
-                                                Storyboard.TargetProperty="Color"
-                                                From="#3E434A"
-                                                To="#272B2F"
-                                                Duration="0:0:0.3" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#212529" />
-                            <Setter Property="Visibility" TargetName="Indicator" Value="Visible" />
+                            <Setter TargetName="border" Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SecondaryColor}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>-->
-
-
-
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

@@ -24,7 +24,7 @@ namespace AutoChronicle.ViewModel
         private string _selectedLanguage = "ENG";
 
         public ICommand OpenInfoCommand { get; set; }
-        public ICommand OpenGalleryPageCommand { get; set; }
+        public ICommand OpenGalleryCommand { get; set; }
         public ICommand OpenHomeCommand { get; set; }
         public ICommand ChangeThemeCommand { get; set; }
         public ICommand ChangeLanguageCommand { get; set; }
@@ -34,10 +34,11 @@ namespace AutoChronicle.ViewModel
         {
             OpenInfoCommand = new RelayCommand((object obj) => CurrentPage = new InfoPage());
             OpenHomeCommand = new RelayCommand((object obj) => CurrentPage = new HomePage());
+            OpenGalleryCommand = new RelayCommand((object obj) => CurrentPage = new GalleryPage());
             ChangeThemeCommand = new RelayCommand((object obj) => ToggleButtonState = 1 - ToggleButtonState);
             ChangeLanguageCommand = new RelayCommand((object obj) => SelectedLanguage = (string)obj);
 
-            CarBrands = new ObservableCollection<string>(DataReader.ReadCarBrands()); // { "Audi", "Mazda", "BMW", "Mercedes", "Jeep", "Geely", "Honda", "Nissan", "Toyota", "KIA", "Cintroen", "Peugeot", "GAZ", "VAZ", "Subaru", "Mitsubishi", "FSO", "Volvo", "Dodge", "Chevrolet", "Ford"};
+            CarBrands = new ObservableCollection<string>(DataReader.ReadCarBrands()); 
             CarBrands = new ObservableCollection<string>(CarBrands.OrderBy(i => i));
             _itemsView = CollectionViewSource.GetDefaultView(CarBrands);
             _itemsView.Filter = ItemsFilter;

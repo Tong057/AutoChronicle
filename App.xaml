@@ -10,7 +10,8 @@
                 <ResourceDictionary Source="Resources/Styles/Page.xaml" />
                 <ResourceDictionary Source="Resources/Styles/TextBox.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Button.xaml" />
-                <ResourceDictionary Source="Resources/Styles/ToggleButton.xaml" />
+                <ResourceDictionary Source="Resources/Styles/RadioButton.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Menu.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

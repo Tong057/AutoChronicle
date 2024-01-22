@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AutoChronicle" Height="600" Width="1000" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Icon="/Resources/Images/logo.ico"
+        Icon="/Resources/Icons/logo.ico"
         WindowStyle="None"
         Background="{DynamicResource BackdropColor}">
     
@@ -17,9 +17,11 @@
                 <ResourceDictionary Source="/Resources/Styles/Styles.xaml" />
                 <ResourceDictionary Source="/Resources/Styles/TextBox.xaml" />
                 <ResourceDictionary Source="/Resources/Styles/Button.xaml" />
-                <ResourceDictionary Source="/Resources/Styles/ToggleButton.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/RadioButton.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Menu.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        
     </Window.Resources>
 
     <Grid>
@@ -46,35 +48,38 @@
 
             <StackPanel Margin="16, 0, 0, 0" Orientation="Horizontal" Grid.Column="0">
                 <Menu VerticalAlignment="Center" >
-                    <MenuItem VerticalAlignment="Center" Header="&#xF8B0;" FontSize="28" Style="{DynamicResource Services_MenuItem_With_Dropdown}" >
-                        <StackPanel Margin="10">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{DynamicResource LightLabel}" FontFamily="Rubik Regular" FontSize="18" 
-                                           Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="0, 0, 10, 0"/>
-                                <ToggleButton Width="40" Command="{Binding ChangeThemeCommand}" IsChecked="True" />
-                                <TextBlock Text="{DynamicResource DarkLabel}" FontFamily="Rubik Regular" FontSize="18" 
-                                           Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
-                            </StackPanel>
-                            <Separator />
-                            <StackPanel Orientation="Horizontal">
-                                    <RadioButton Command="{Binding ChangeLanguageCommand}" IsChecked="True" CommandParameter="ENG" 
-                                                 GroupName="LanguageGroup" Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
-                                    <TextBlock Text="{DynamicResource EnglishLabel}" FontFamily="Rubic Regular" FontSize="18" 
-                                               Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="RUS" GroupName="LanguageGroup" 
-                                                 Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
-                                <TextBlock Text="{DynamicResource RussianLabel}" FontFamily="Rubik Regular" FontSize="18" 
-                                               Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="POL" GroupName="LanguageGroup" 
-                                                 Style="{StaticResource LanguageRadioButtonStyle}" Width="20"/>
-                                <TextBlock Text="{DynamicResource PolishLabel}" FontFamily="Rubik Regular" FontSize="18" 
-                                           Foreground="{DynamicResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
-                                </StackPanel>
-                            </StackPanel>
+                    <MenuItem VerticalAlignment="Center" Header="&#xF8B0;" FontSize="28" Style="{StaticResource MenuItemDropDownStyle}" >
+                        <MenuItem Header="{DynamicResource LightLabel}" Height="35" Style="{StaticResource MenuItemStyle}">
+                            <MenuItem.Icon>
+                                <RadioButton Command="{Binding ChangeThemeCommand}" IsChecked="False"
+                                                 GroupName="ThemeGroup" Style="{StaticResource RadioButtonStyle}" Width="12" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="{DynamicResource DarkLabel}" Height="35" Style="{StaticResource MenuItemStyle}">
+                            <MenuItem.Icon>
+                                <RadioButton Command="{Binding ChangeThemeCommand}" IsChecked="True"
+                                                 GroupName="ThemeGroup" Style="{StaticResource RadioButtonStyle}" Width="12" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator HorizontalAlignment="Center" Height="1" Background="#fff"/>
+                        <MenuItem Header="{DynamicResource EnglishLabel}" VerticalAlignment="Center" Height="35" Style="{StaticResource MenuItemStyle}">
+                            <MenuItem.Icon>
+                                <RadioButton Command="{Binding ChangeLanguageCommand}" IsChecked="True" CommandParameter="ENG" 
+                                                 GroupName="LanguageGroup" Style="{StaticResource RadioButtonStyle}" Width="12" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="{DynamicResource RussianLabel}" Height="35" Style="{StaticResource MenuItemStyle}">
+                            <MenuItem.Icon>
+                                <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="RUS" GroupName="LanguageGroup" 
+                                                 Style="{StaticResource RadioButtonStyle}" Width="12"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="{DynamicResource PolishLabel}" Height="35" Style="{StaticResource MenuItemStyle}">
+                            <MenuItem.Icon>
+                                <RadioButton Command="{Binding ChangeLanguageCommand}" CommandParameter="POL" GroupName="LanguageGroup" 
+                                                 Style="{StaticResource RadioButtonStyle}" Width="12"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                     </MenuItem>
                 </Menu>
                 <Button x:Name="InfoButton" FontSize="28" Content="&#xE946;" Style="{StaticResource IconButtonStyle}" 
@@ -146,15 +151,18 @@
             <ListBox x:Name="CarBrandsListBox" 
                      ItemsSource="{Binding CarBrands}" 
                      SelectedValue="{Binding SelectedItem}"
-                     Height="440" 
+                     Height="445" 
                      Margin="20, 0" 
                      FontFamily="Montserrat Thin" 
                      FontSize="20" 
                      Foreground="{DynamicResource PrimaryTextColor}" 
                      Background="Transparent" 
-                     BorderBrush="Transparent" 
+                     BorderBrush="Transparent"
+                     ItemContainerStyle="{StaticResource AnimatedListBoxItemStyle}"
                      >
             </ListBox>
+            <Rectangle Grid.Row="1" Grid.Column="0" Fill="{DynamicResource SecondaryColor}" Height="1" 
+                   VerticalAlignment="Bottom" Margin="25, 0" />
         </StackPanel>
         <ScrollViewer x:Name="MainScrollViewer" 
                       Margin="0, 0, 0, 20" 
