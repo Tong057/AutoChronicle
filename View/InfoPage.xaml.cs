@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,16 @@ namespace AutoChronicle.View
         public InfoPage()
         {
             InitializeComponent();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            var destinationurl = e.Uri.AbsoluteUri;
+            var sInfo = new ProcessStartInfo(destinationurl)
+            {
+                UseShellExecute = true,
+            };
+            Process.Start(sInfo);
         }
     }
 }

@@ -24,9 +24,16 @@ namespace AutoChronicle.View
         public HomePage()
         {
             InitializeComponent();
-
         }
 
-
+        private void BrandListBox_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
+            var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta)
+            {
+                RoutedEvent = UIElement.MouseWheelEvent
+            };
+            BrandListBox.RaiseEvent(eventArg);
+        }
     }
 }

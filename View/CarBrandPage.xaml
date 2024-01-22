@@ -17,18 +17,9 @@
                        Foreground="{DynamicResource PrimaryTextColor}" 
                        FontFamily="Reforma 1918 Blanca"
                        FontSize="24" 
-                       Height="Auto"
-                       >
-                
+                       Height="Auto">
             </TextBlock>
 
-            <TextBlock TextWrapping="Wrap" 
-                       Margin="0, 15"
-                       Foreground="{DynamicResource PrimaryTextColor}" 
-                       FontSize="24" 
-                       Height="Auto"
-                       Text="Autor: Tong057"/>
-            
         </StackPanel>
     </Grid>
 </UserControl>

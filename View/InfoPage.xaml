@@ -17,14 +17,43 @@
                        Height="Auto" 
                        FontFamily="Roboto"
                        Text="{DynamicResource InfoPageText}"/>
-            <TextBlock TextWrapping="Wrap" 
-                       Margin="0, 15"
+            <StackPanel Orientation="Horizontal" Margin="0, 15, 0, 5">
+                <TextBlock TextWrapping="Wrap" 
                        Foreground="{DynamicResource PrimaryTextColor}" 
                        FontSize="24" 
                        FontFamily="Consolas"
+                       VerticalAlignment="Center"
                        Height="Auto" 
-                       Text="{DynamicResource AutorLabel}"/>
-            
+                       Text="{DynamicResource AutorLabel}" />
+
+                <TextBlock TextWrapping="Wrap" 
+                       Margin="10, 0"
+                       Foreground="#686868" 
+                       VerticalAlignment="Center"
+                       FontSize="20" 
+                       FontFamily="Consolas"
+                       Height="Auto" 
+                       Text="{DynamicResource SupportedByLabel}" />
+            </StackPanel>
+
+            <TextBlock TextWrapping="Wrap" 
+                           HorizontalAlignment="Left"
+                           Foreground="{DynamicResource PrimaryTextColor}" 
+                           FontSize="24" 
+                           FontFamily="Consolas"
+                           Height="Auto">
+                        <Run Text="{DynamicResource LinkLabel}" />
+                        <Hyperlink FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" NavigateUri="https://github.com/Tong057" RequestNavigate="Hyperlink_RequestNavigate">
+                            --> GitHUB &lt;--
+                        </Hyperlink>
+                        <Hyperlink FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" NavigateUri="https://t.me/TonyG057" RequestNavigate="Hyperlink_RequestNavigate">
+                            --> Telegram &lt;--
+                        </Hyperlink>
+                        <Hyperlink FontSize="20" Foreground="{DynamicResource PrimaryTextColor}" NavigateUri="https://www.instagram.com/tony_katolichenko" RequestNavigate="Hyperlink_RequestNavigate">
+                            --> Instagram &lt;--
+                        </Hyperlink>
+            </TextBlock>
+
         </StackPanel>
     </Grid>
 </UserControl>

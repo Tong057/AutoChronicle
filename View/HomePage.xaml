@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:AutoChronicle.View" xmlns:local1="clr-namespace:AutoChronicle.Model.Utils"
              mc:Ignorable="d" 
              d:DesignHeight="530" d:DesignWidth="795"
-             Style="{StaticResource PageAnimationStyle}">
+>
     <UserControl.Resources>
         <local:ImagePathConverter x:Key="ImagePathConverter" />
     </UserControl.Resources>
     <Grid>
-        <ListBox Name="BrandListBox" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding CarBrands}" SelectedValue="{Binding SelectedItem}" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
+        <ListBox Name="BrandListBox" PreviewMouseWheel="BrandListBox_PreviewMouseWheel" ItemsSource="{Binding CarBrands}" SelectedValue="{Binding SelectedItem}" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Template">

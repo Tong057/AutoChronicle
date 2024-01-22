@@ -19,9 +19,8 @@ namespace AutoChronicle
             MainWindowViewModel mainVM = new MainWindowViewModel();
             mainVM.OnVerticalOffsetChanged += ViewModel_OnVerticalOffsetChanged;
             DataContext = mainVM;
-
-            
         }
+
         private void HeaderGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

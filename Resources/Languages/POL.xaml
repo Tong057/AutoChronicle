@@ -10,6 +10,8 @@
         ta przewodnicząca podręcznikowi aplikacja jest nieocenionym towarzyszem każdego początkującego, a być może nawet zatwardziałego fana samochodów.
     </system:String>
     <system:String x:Key="AutorLabel">Autor: Tong057</system:String>
+    <system:String x:Key="SupportedByLabel">// Przy wsparciu AlexEvoX</system:String>
+    <system:String x:Key="LinkLabel">Linki:</system:String>
     <system:String x:Key="EnglishLabel">Angielski</system:String>
     <system:String x:Key="PolishLabel">Polski</system:String>
     <system:String x:Key="RussianLabel">Rosyjski</system:String>

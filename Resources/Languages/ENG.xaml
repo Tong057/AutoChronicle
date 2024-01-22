@@ -11,6 +11,8 @@
         to change languages, this guide-like application is an invaluable companion for every beginner, and perhaps even a seasoned car enthusiast.
     </system:String>
     <system:String x:Key="AutorLabel">Autor: Tong057</system:String>
+    <system:String x:Key="SupportedByLabel">// Supported by AlexEvoX</system:String>
+    <system:String x:Key="LinkLabel">Links: </system:String>
     <system:String x:Key="EnglishLabel">English</system:String>
     <system:String x:Key="PolishLabel">Polish</system:String>
     <system:String x:Key="RussianLabel">Russian</system:String>
