@@ -1,5 +1,6 @@
 # AutoChronicle
 Welcome to the description of the AutoChronicle! This application is a desktop application designed to facilitate access to the fascinating world of automobiles. It is nothing less than a true encyclopedia for automotive enthusiasts. It includes historical information about all known automotive companies, presented with illustrations and a brief summary. Additionally, data about individual models from various brands are available. Enriched with an incredible design and the ability to change languages, this guide-like application is an invaluable companion for every beginner, and perhaps even a seasoned car enthusiast.
+
 ![image](https://github.com/Tong057/AutoChronicle/assets/130866438/7a4dfdb8-3c32-49a0-b0df-b05aa7f420d8)
 ![image](https://github.com/Tong057/AutoChronicle/assets/130866438/7f203ad2-b721-48b9-99e3-e589326f9736)
 ![image](https://github.com/Tong057/AutoChronicle/assets/130866438/453dddf6-5818-47dd-9078-258d7462ddf9)
