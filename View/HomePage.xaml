@@ -11,7 +11,7 @@
         <local:ImagePathConverter x:Key="ImagePathConverter" />
     </UserControl.Resources>
     <Grid>
-        <ListBox Name="BrandListBox" ItemsSource="{Binding CarBrands}" SelectedValue="{Binding SelectedItem}" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
+        <ListBox Name="BrandListBox" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding CarBrands}" SelectedValue="{Binding SelectedItem}" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Template">
@@ -48,6 +48,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
     </Grid>
 </UserControl>

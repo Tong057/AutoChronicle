@@ -17,5 +17,5 @@
     <system:String x:Key="LightLabel">Light Theme</system:String>
     <system:String x:Key="DarkLabel">Dark Theme</system:String>
     <system:String x:Key="NextLabel">Next</system:String>
-
+    <system:String x:Key="WaitingLabel">Waiting...</system:String>
 </ResourceDictionary>

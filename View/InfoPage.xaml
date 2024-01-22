@@ -9,7 +9,7 @@
              Style="{StaticResource PageAnimationStyle}">
     <Grid>
         <StackPanel>
-            <Image Source="/Resources/Icons/logo.png" RenderOptions.BitmapScalingMode="HighQuality" Width="350" />
+            <Image Source="/Resources/Images/logo.png" RenderOptions.BitmapScalingMode="HighQuality" Width="350" />
             <TextBlock TextWrapping="Wrap" 
                        Margin="0, 15"
                        Foreground="{DynamicResource PrimaryTextColor}" 

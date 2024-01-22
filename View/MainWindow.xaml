@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AutoChronicle" Height="600" Width="1000" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Icon="/Resources/Icons/logo.ico"
+        Icon="/Resources/Images/logo.ico"
         WindowStyle="None"
         Background="{DynamicResource BackdropColor}">
     

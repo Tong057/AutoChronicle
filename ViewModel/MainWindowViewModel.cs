@@ -32,9 +32,9 @@ namespace AutoChronicle.ViewModel
 
         public MainWindowViewModel()
         {
-            OpenInfoCommand = new RelayCommand((object obj) => CurrentPage = new InfoPage());
-            OpenHomeCommand = new RelayCommand((object obj) => CurrentPage = new HomePage());
-            OpenGalleryCommand = new RelayCommand((object obj) => CurrentPage = new GalleryPage());
+            OpenInfoCommand = new RelayCommand((object obj) => { CurrentPage = new InfoPage(); SelectedItem = null; });
+            OpenHomeCommand = new RelayCommand((object obj) => { CurrentPage = new HomePage(); SelectedItem = null; });
+            OpenGalleryCommand = new RelayCommand((object obj) => { CurrentPage = new GalleryPage(); SelectedItem = null; });
             ChangeThemeCommand = new RelayCommand((object obj) => ToggleButtonState = 1 - ToggleButtonState);
             ChangeLanguageCommand = new RelayCommand((object obj) => SelectedLanguage = (string)obj);
 

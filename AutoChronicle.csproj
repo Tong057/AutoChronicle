@@ -15,13 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Images\logo.ico" />
-    <None Remove="Resources\Images\logo.png" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Icons\logo.ico" />
-    <Resource Include="Resources\Icons\logo.png" />
+    <Resource Include="Resources\Images\logo.ico" />
+    <Resource Include="Resources\Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,4 +16,5 @@
     <system:String x:Key="LightLabel">Jasny Tryb</system:String>
     <system:String x:Key="DarkLabel">Ciemny Tryb</system:String>
     <system:String x:Key="NextLabel">Dalej</system:String>
+    <system:String x:Key="WaitingLabel">Proszę poczekać...</system:String>
 </ResourceDictionary>

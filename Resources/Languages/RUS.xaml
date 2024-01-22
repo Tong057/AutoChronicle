@@ -16,4 +16,5 @@
     <system:String x:Key="LightLabel">Светлая Тема</system:String>
     <system:String x:Key="DarkLabel">Тёмная Тема</system:String>
     <system:String x:Key="NextLabel">Дальше</system:String>
+    <system:String x:Key="WaitingLabel">Ожидание...</system:String>
 </ResourceDictionary>

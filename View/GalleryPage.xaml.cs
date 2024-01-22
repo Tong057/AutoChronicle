@@ -1,7 +1,7 @@
 ﻿using AutoChronicle.Model.Utils;
 using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -13,36 +13,53 @@ namespace AutoChronicle.View
     /// </summary>
     public partial class GalleryPage : UserControl
     {
-        private Random _rand = new Random();
-        private int _previousIndex;
-        private FileInfo[] _avaliableImages;
+        private const string UnsplashClientId = "lZw9iw0q6sfPSO0TjLg0kfHLik2IoN7uOzidngiAKX8";
+        private const string UnsplashApiUrl = "https://api.unsplash.com/photos/random?query=cars&client_id=";
+
         public GalleryPage()
         {
             InitializeComponent();
-            InitializeAvaliableImages();
-            GenerateNextImage();
+            GenerateNextImageAsync();
         }
 
-        private void InitializeAvaliableImages()
-        {
-            string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            string imagesDirectory = projectDirectory + "/Resources/Images";
-            DirectoryInfo dirInfo = new DirectoryInfo(imagesDirectory);
-            _avaliableImages = dirInfo.GetFiles();
+        private async void NextImageButton_Click(object sender, RoutedEventArgs e)
+        {  
+            await GenerateNextImageAsync();
         }
 
-        private void NextImageButton_Click(object sender, RoutedEventArgs e)
+        private async Task GenerateNextImageAsync()
         {
-            GenerateNextImage();
-        }
+            WaitingTextBox.Visibility = Visibility.Visible;
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    string endpoint = UnsplashApiUrl + UnsplashClientId;
+                    HttpResponseMessage response = await client.GetAsync(endpoint);
 
-        private void GenerateNextImage()
-        {
-            int index;
-            while ((index = _rand.Next(0, _avaliableImages.Length)) == _previousIndex);
-            CarImage.Source = new BitmapImage(new Uri(_avaliableImages[index].FullName));
-            CarNameTextBlock.Text = Path.GetFileNameWithoutExtension(_avaliableImages[index].FullName);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonContent = await response.Content.ReadAsStringAsync();
+                        dynamic jsonData = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonContent);
+
+                        string imageUrl = jsonData.urls.regular;
+                        CarImage.Source = new BitmapImage(new Uri(imageUrl));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to fetch image. Status code: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    WaitingTextBox.Visibility = Visibility.Collapsed;
+                }
+            }
         }
     }
+
 }
