@@ -22,7 +22,7 @@ Welcome to the description of AutoChronicle! This desktop application is designe
 
 AutoChronicle is built on Windows Presentation Foundation (WPF), requiring .NET to run. To get started with AutoChronicle, ensure you have the .NET Framework installed on your Windows PC, then download and install the application. Enjoy your journey through the history and beauty of automobiles with AutoChronicle!
 
-
+![Project preview копия](https://github.com/Tong057/AutoChronicle/assets/130866438/7da503fc-aed4-4594-98df-40c2bc1de1f6)
 ![298539638-7a4dfdb8-3c32-49a0-b0df-b05aa7f420d8](https://github.com/Tong057/AutoChronicle/assets/130866438/244e90ea-1ddd-4cbb-a102-ea0dac18de1d)
 ![image](https://github.com/Tong057/AutoChronicle/assets/130866438/7f203ad2-b721-48b9-99e3-e589326f9736)
 ![298539941-453dddf6-5818-47dd-9078-258d7462ddf9](https://github.com/Tong057/AutoChronicle/assets/130866438/4fbef9e5-b3fd-4531-bfad-a20f1b30683e)
